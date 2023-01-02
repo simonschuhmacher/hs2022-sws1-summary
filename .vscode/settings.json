@@ -1,0 +1,43 @@
+{
+    "latex-workshop.latex.outDir": "%DIR%/out",
+    "latex-workshop.latex.tools": [
+        {
+          "name": "latexmk",
+          "command": "latexmk",
+          "args": [
+            "-shell-escape",
+            "-synctex=1",
+            "-halt-on-error",
+            "-file-line-error",
+            "-lualatex",
+            "-outdir=%OUTDIR%",
+            "-MSWinBackSlash-",
+            "%DOC%"
+          ],
+          "env": {}
+        }
+    ],
+    "ltex.language": "en-US",
+    "ltex.latex.commands": {
+        "\\xmulticolumn{}{}{}{}{}": "dummy",
+        "\\rowcolor{}": "dummy",
+        "\\markdownSetup{}": "dummy",
+        "\\markdownInput{}": "dummy",
+        "\\markdownInput[]{}": "dummy",
+        "\\NewDocumentCommand{}{}{}": "dummy",
+        "\\RenewDocumentCommand{}{}{}": "dummy",
+        "\\lstdefinestyle{}{}": "dummy",
+        "\\lstset{}": "dummy",
+        "\\lstdefinelanguage{}{}": "dummy",
+        "\\IfFileExists{}{}{}": "dummy",
+        "\\urlstyle{}": "dummy",
+        "\\PassOptionsToPackage{}{}": "dummy",
+        "\\newmdenv[]{}": "dummy",
+        "\\def\\emojifontname{}": "dummy",
+        "\\setmainfont[]{}": "dummy",
+        "\\setkeys{}{}": "dummy",
+        "\\sethlcolor{}": "dummy",
+        "\\markdownSetupSnippet{}{}": "dummy",
+        "\\newpagestyle{}{}": "dummy",
+    }
+}

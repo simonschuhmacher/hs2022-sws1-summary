@@ -1,0 +1,26 @@
+\documentclass[10pt]{article}
+
+\input{helpers/packages}
+\input{bienenfresser/bienenfresser}
+\input{helpers/config}
+\input{helpers/layout}
+
+\begin{document}
+
+\pagenumbering{gobble}
+\input{parts/00-titlepage}
+
+\pagestyle{main}
+
+\pagenumbering{Roman}
+\section{Contents}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+\markdownInput[
+    % snippet = noToc
+]{parts/01-content.md}
+
+\end{document}

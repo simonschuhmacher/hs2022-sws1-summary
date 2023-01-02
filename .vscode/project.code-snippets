@@ -1,0 +1,22 @@
+{
+    "Include Graphics Center": {
+        "prefix": "inc",
+        "body": "\\cincludegraphics{${0:${TM_SELECTED_TEXT}}}",
+    },
+    "Include Graphics Center with Page": {
+        "prefix": "inp",
+        "body": "\\cincludegraphics[page=$0]{${1:${TM_SELECTED_TEXT}}}",
+    },
+    "Include Slide": {
+        "scope": "latex,markdown",
+        "prefix": "ins",
+        "body": "\\includeslide{$0}",
+        "description": "Include a page from slides"
+    },
+    "Include Slide with Title": {
+        "scope": "latex,markdown",
+        "prefix": "int",
+        "body": "\\includeslide{$1}{$0}",
+        "description": "Include a page from slides with a title"
+    },
+}

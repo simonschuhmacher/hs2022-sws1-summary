@@ -1,0 +1,92 @@
+\MakeOuterQuote{"}
+
+\newcommand{\trightarrow}{^^^^2192\xspace}
+% make math bold as well
+\let\oldtextbf=\textbf
+\renewcommand\textbf[1]{{\boldmath\oldtextbf{#1}}}
+
+\makeatletter
+\newcommand{\Scale}[2][1]{\scalebox{#1}{$\m@th#2$}}
+\makeatother
+
+\newcommand{\sblacktriangleright}{%
+  \vcenter{\hbox{\Scale[0.65]{\blacktriangleright}}}%
+}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\newcommand\normx[1]{\left\Vert#1\right\Vert}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\makeatletter
+\renewcommand{\tableofcontents}{\@starttoc{toc}}
+\makeatother
+
+% \let\originalsection\section
+% \RenewDocumentCommand{\section}{s m}{
+%     \IfBooleanTF{#1}
+%     {\originalsection*{#2}}
+%     {\sectionmark{#2}\originalsection{#2}}
+% }
+
+\markdownSetup{
+    rendererPrototypes={
+        blockQuoteBegin = {
+            \begin{quote}
+        },
+        blockQuoteEnd = {
+            \end{quote}
+        },
+    },
+    % hybrid,
+    taskLists = true,
+    fencedCode,
+    underscores = false,
+    outputDir = {./out}
+}
+
+\markdownSetupSnippet{noToc}{
+    renderers = {
+        headingOne = {\section*{#1}},
+        headingTwo = {\subsection*{#1}},
+        headingThree = {\subsubsection*{#1}},
+        headingFour = {\paragraph*{#1}\leavevmode},
+        headingFive = {\subparagraph*{#1}\leavevmode}
+    },
+}
+
+\newenvironment{samepagebf}{\begin{samepage}}{\end{samepage}\pagebreak[0]}
+
+\newcommand{\slidesPDF}{mldm-slides-all_flattened.pdf}
+\newcommand{\cincludegraphics}[2][]{
+    \begin{center}
+        \includegraphics[#1]{#2}
+    \end{center}
+}
+
+\NewDocumentCommand{\includecslide}{m o g}{
+    \IfNoValueTF{#3}{
+        \IfNoValueTF{#2}{
+            \cincludegraphics{#1}
+        }{
+            \cincludegraphics[page=#2]{#1}
+        }
+    }{
+        \IfNoValueTF{#2}{
+            \begin{samepagebf}
+                \paragraph{#3}
+                \cincludegraphics{#1}
+            \end{samepagebf}
+        }{
+            \begin{samepagebf}
+                \paragraph{#3}
+                \cincludegraphics[page=#2]{#1}
+            \end{samepagebf}
+        }
+    }
+}
+
+\NewDocumentCommand{\includeslide}{m g}{
+    \includecslide{\slidesPDF}[#1]{#2}
+}
